@@ -1,0 +1,21 @@
+# An Ingress with 2 hosts and 3 endpoints
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nodeapp-rules
+spec:
+  rules:
+  - host: nodeapp-blue.prod.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nodeapp-v1
+          servicePort: 80
+  - host: nodeapp-green.stage.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nodeapp-v2
+          servicePort: 80

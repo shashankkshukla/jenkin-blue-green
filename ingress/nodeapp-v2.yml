@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-v2-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapp-v2
+  template:
+    metadata:
+      labels:
+        app: nodeapp-v2
+    spec:
+      containers:
+      - name: k8s-demo
+        image: shashankshukla/jenkindockernodejs:tagVersion
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapp-v2
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 30304
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: nodeapp-v2
