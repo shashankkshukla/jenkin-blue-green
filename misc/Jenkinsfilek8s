@@ -69,7 +69,7 @@ pipeline {
 	     sh "cd /var/lib/jenkins/workspace/pipeline-test/ingress"
 	     sh "chmod +x changeTag.sh"
 	     sh "./changeTag.sh ${DOCKER_TAG}"
-             sh "kubectl apply -f /var/lib/jenkins/workspace/pipeline-test/ingress/helloworld-v2-tag.yml"
+             sh "kubectl apply -f /var/lib/jenkins/workspace/pipeline-test/ingress/nodeapp-v2-tag.yml"
           }
         }
     }
