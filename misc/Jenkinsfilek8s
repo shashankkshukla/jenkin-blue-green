@@ -66,10 +66,10 @@ pipeline {
     }*/
     stage('Deploy to k8s'){
             steps{
-	     sh "cd /var/lib/jenkins/workspace/pipeline-test/ingress"
+	     sh "cd /var/lib/jenkins/workspace/pipeline-k8s/ingress"
 	     sh "chmod +x changeTag.sh"
 	     sh "./changeTag.sh ${DOCKER_TAG}"
-             sh "kubectl apply -f /var/lib/jenkins/workspace/pipeline-test/ingress/nodeapp-v2-tag.yml"
+             sh "kubectl apply -f /var/lib/jenkins/workspace/pipeline-k8s/ingress/nodeapp-v2-tag.yml"
           }
         }
     }
