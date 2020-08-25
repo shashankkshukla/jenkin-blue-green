@@ -12,7 +12,6 @@ Process :
 2.	Execute below command on kubernetes cluster.(files is present in ingress folder)
 •	kubectl apply -f nginx-ingress-controller.yml
 •	kubectl apply -f ingress.yml
-•	kubectl apply -f echoservice.yml
 3.	Pipeline script is present in “misc” folder.
 4.	Please change folder path as per your Jenkin workspace in pipeline script.
 5.	Please change folder path in changeTag.sh file.
