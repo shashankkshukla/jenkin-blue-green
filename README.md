@@ -3,11 +3,11 @@
 CI/CD with Jenkins using Pipelines for kubernetes.
 
 Prerequisite :
-•	Install Jenkin latest version
-•	Any Kubernetes cluster
-•	Create requisite credentials in jenkin to run Pipeline like Github and docker repository access.
-Process :
+1.	Install Jenkin latest version
+2.	Any Kubernetes cluster
+3.	Create requisite credentials in jenkin to run Pipeline like Github and docker repository access.
 
+Process :
 1.	Kops kubernetes cluster with 1 Master and 1 worker node is used for testing on AWS cloud.
 2.	Execute below command on kubernetes cluster.(files is present in ingress folder)
 •	kubectl apply -f nginx-ingress-controller.yml
