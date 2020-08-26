@@ -23,16 +23,16 @@ pipeline {
    }
         stage('Build Docker Image'){
             steps{
-                sh "docker build . -t <dockerhub repo name>:${DOCKER_TAG} "
+                sh "docker build . -t shashankshukla/jenkindockernodejs:${DOCKER_TAG} "
             }
         }
         stage('DockerHub Push'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'dockerhub',usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'echo $PASSWORD'
+                    /*sh 'echo $PASSWORD'*/
                     echo "${env.USERNAME}"
-                    sh "docker login -u <dockerhub user id> -p $PASSWORD"
-                    sh "docker push <dockerhub repo name>:${DOCKER_TAG}"
+                    sh "docker login -u shashankshukla -p $PASSWORD"
+                    sh "docker push shashankshukla/jenkindockernodejs:${DOCKER_TAG}"
                 }
             }
         }
